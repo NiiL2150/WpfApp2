@@ -20,25 +20,29 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
+        string[] colours = {"Navy", "Blue", "Aqua", "Teal", "Olive", "Green", "Lime", "Yellow", 
+            "Orange", "Red", "Maroon", "Fuchsia", "Purple", "Black", "Silver", "Gray", "White"};
+        Color[] colors = { Colors.Navy, Colors.Blue, Colors.Aqua, Colors.Teal, Colors.Olive,
+                Colors.Green, Colors.Lime, Colors.Yellow, Colors.Orange, Colors.Red, Colors.Maroon,
+            Colors.Fuchsia, Colors.Purple, Colors.Black, Colors.Silver, Colors.Gray, Colors.White};
+
         public MainWindow()
         {
             InitializeComponent();
-            button1.Content = "";
-        }
-
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show(e.GetPosition(this).X.ToString());
-        }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            button1.Content += e.Key.ToString();
-        }
-
-        private void Window_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            MessageBox.Show("Lost");
+            for (int i = 0; i < colours.Length; i++)
+            {
+                var item = colours[i];
+                Button button = new Button();
+                button.Width = item.Length * 8 + 12;
+                button.Height = 24;
+                button.Content = item;
+                button.Name = "Button" + item;
+                button.Foreground = new SolidColorBrush(colors[i]);
+                button.Margin = new Thickness(2, 2, 2, 2);
+                button.HorizontalAlignment = HorizontalAlignment.Left;
+                button.VerticalAlignment = VerticalAlignment.Top;
+                ButtonsGrid.Children.Add(button);
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace WpfApp2
                 button.Content = item;
                 button.Name = "Button" + item;
                 button.Foreground = new SolidColorBrush(colors[i]);
-                button.Margin = new Thickness(2, 2, 2, 2);
+                button.Margin = new Thickness(2);
                 button.HorizontalAlignment = HorizontalAlignment.Left;
                 button.VerticalAlignment = VerticalAlignment.Top;
                 ButtonsGrid.Children.Add(button);
